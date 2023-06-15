@@ -1,0 +1,614 @@
+[
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545395,
+                -38.5316537
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545395,
+                -38.5316537
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "+1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545395,
+                -38.5316537
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "+1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "+1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.747747747747748,
+                -38.53285321083946
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.747747747747748,
+                -38.53285321083946
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "+1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545483,
+                -38.5316556
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545509,
+                -38.5317017
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7545483,
+                -38.5316556
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7581625,
+                -38.5375255
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "PJ",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.754537,
+                -38.5316112
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "PJ",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "-1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "PJ",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "PJ",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "0-500"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "N",
+            "Já ficou desempregado? ": "N",
+            "Que tipos de emprego já teve? ": "PJ",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.7552128,
+                -38.5318912
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "typeResp": "markers",
+        "properties": {
+            "Está empregado atualmente? ": "S",
+            "Já ficou desempregado? ": "+1",
+            "Que tipos de emprego já teve? ": "CLT",
+            "Qual a renda familiar? ": "501-1000"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -3.747747747747748,
+                -38.53285321083946
+            ]
+        }
+    }
+]
