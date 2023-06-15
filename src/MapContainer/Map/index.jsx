@@ -6,6 +6,8 @@ import "pixi.js";
 import usePointsOverlay from "../hooks/usePointsOverlay";
 import usePolygonOverlay from "../hooks/usePolygonOverlay";
 import Style from "../Map.module.css";
+import Details from "../Details";
+import Legend from "../Legend";
 let map;
 let colors;
 
@@ -27,6 +29,19 @@ const Map = ({
     const [mapScale, setMapScale] = useState(null);
     const [focusPolygon, setFocusPolygon] = useState(null);
     const [polygonLayer, setPolygonLayer] = useState(null);
+    const [details, setDetails] = useState(null);
+    const [location, setLocation] = useState(null);
+    const [agroupedMethod, setAgrouped] = useState(agrouped);
+
+    useEffect(() => {
+        if (variable)
+            if (!valueOfProperties[variable].every(isNumeric)) {
+                setAgrouped("mode");
+                agrouped = "mode";
+            } else {
+                setAgrouped("numerical");
+            }
+    }, [variable]);
 
     let type = data[0].typeResp;
 
@@ -43,17 +58,11 @@ const Map = ({
             }).addTo(map);
         }
     }, [mapRef, data]);
-    // ATUALIZA AGRUPAMENTO
-    useEffect(() => {
-        if (variable)
-            if (!valueOfProperties[variable].every(isNumeric))
-                agrouped = "mode";
-    }, [variable]);
+
     // CREATE SCALE
     useEffect(() => {
         if (variable) {
             const properties = valueOfProperties[variable];
-            console.log(agrouped, scaleMethod, scaleColor)
             if (agrouped === "mode") {
                 const categories = Array.from(new Set(properties));
                 setMapScale(() => d3.scaleOrdinal()
@@ -63,17 +72,16 @@ const Map = ({
                 if (scaleMethod === "quantile") {
                     setMapScale(() => d3.scaleQuantile()
                         .domain(properties.sort((a, b) => a - b))
-                        .range(scaleColor === "divergente" ? d3.schemeRdBu[5] : d3.schemeBlues[5]));
-                    console.log(mapScale)
+                        .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
                 }
                 if (scaleMethod === "quantize") {
                     setMapScale(() => d3.scaleQuantize()
                         .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
-                        .range(scaleColor === "divergente" ? d3.schemeRdBu[5] : d3.schemeBlues[5]));
+                        .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
                 }
             }
         }
-    }, [agrouped, scaleMethod, scaleColor]);
+    }, [variable, agrouped, scaleMethod, scaleColor]);
     // CREATE OVERLAYERS
     useEffect(() => {
         let layers = Object.values(map._layers);
@@ -86,7 +94,7 @@ const Map = ({
             map.removeLayer(layer);
         });
         if (type === "polygons") {
-            usePolygonOverlay(map, data, variable, agrouped, mapScale, colorsFeatures, setDetails, setLocation, setFocusPolygon);
+            usePolygonOverlay(map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon);
         }
         if (type === "markers") {
             usePointsOverlay(map, data, variable, mapScale);
@@ -100,7 +108,9 @@ const Map = ({
         if (map && focusPolygon) {
             const newPolygonLayer = L.polygon(focusPolygon, {
                 interactive: false,
-                color: "black",
+                color: "#E8E8E8",
+                stroke: "#E8E8E8",
+                weight: 4,
                 fillOpacity: 0
             }).addTo(map);
             setPolygonLayer(newPolygonLayer);
@@ -120,6 +130,12 @@ const Map = ({
     return (
         <div>
             <div style={{ position: 'absolute', zIndex: 0 }} ref={mapRef} id="map-container" className={Style.Map}>
+            </div>
+            <div style={{ position: 'absolute', top: '80px', right: '20px', zIndex: '1' }}>
+                {variable && <Details type={type} title={variable} detail={details} place={location} agrouped={agroupedMethod} />}
+            </div>
+            <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: '1' }}>
+                {variable && <Legend key={1} type={agroupedMethod} data={data} set={valueOfProperties[variable]} mapScale={mapScale} scaleMethod={scaleMethod} />}
             </div>
         </div>
     );

@@ -12,9 +12,12 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
         const circleCenters = data.map(properties => {
             return properties.geometry.coordinates;
         });
+        const circleProperties = data.map(feature => {
+            return feature.properties[variable]
+        })
         let projectedCenters;
 
-        let circleRadius = 12;
+        let circleRadius = 10;
 
         const circles = data.map((feature) => {
             return new PIXI.Graphics();
@@ -24,6 +27,13 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
             geo.interactive = true;
             geo.cursor = 'pointer';
         });
+        // AJUSTES NO ZOOM
+        const markerGroup = L.featureGroup();
+        circleCenters.forEach(coord => {
+            L.marker(coord).addTo(markerGroup);
+        });
+        const bounds = markerGroup.getBounds();
+        map.fitBounds(bounds);
 
         const pixiContainer = new PIXI.Container();
         circles.forEach(circle => {
@@ -55,16 +65,22 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
             }
             if (firstDraw || prevZoom !== zoom) {
                 circles.forEach((circle, i) => {
+                    let value = variable ? data[i].properties[variable] : null;
+                    if (!isNaN(value))
+                        value = parseFloat(value);
+                    let color = value ? mapScale(value) : '#92C5DE';
+                    color = color.replace('#', '');
                     circle.clear();
-                    circle.lineStyle(3 / scale, 0xff0000, 0);
-                    circle.beginFill(0xff0033, 1);
+                    circle.lineStyle(3 / scale, parseInt(color, 16), 0);
+                    circle.beginFill(parseInt(color, 16), 1);
                     circle.x = projectedCenters[i].x;
                     circle.y = projectedCenters[i].y;
-                    circle.drawCircle(0, 0, circleRadius * 0.0009 / scale);
+                    circle.drawCircle(0, 0, 10 / scale);
                     circle.endFill();
-                    circle.popup = L.popup()
-                        .setLatLng(circleCenters[i])
-                        .setContent('I am a circle.');
+                    if (variable)
+                        circle.popup = L.popup()
+                            .setLatLng(circleCenters[i])
+                            .setContent(circleProperties[i]);
                 });
             }
             firstDraw = false;

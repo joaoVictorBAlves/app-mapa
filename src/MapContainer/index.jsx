@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Filters from "./filters/index";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useProcessProperties from "./hooks/useProcessProperties";
 const Map = dynamic(() => import("./Map"), {
     ssr: false
@@ -19,6 +19,7 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
             return useProcessProperties(feature.properties, question, agrouped);
         });
     });
+    console.log(valueOfProperties)
 
     // STATES
     const [variable, setVariable] = useState();

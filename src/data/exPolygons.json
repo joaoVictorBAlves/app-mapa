@@ -220,18 +220,30 @@
         "properties": {
             "Está empregado atualmente? ": [
                 "N",
-                "S"
+                "S",
+                "S",
+                "S",
+                "N"
             ],
             "Já ficou desempregado? ": [
                 "+1",
                 "-1",
-                "N"
+                "N",
+                "+1",
+                "+1"
             ],
             "Qual a renda familiar? ": [
                 "0-500",
-                "501-1000"
+                "501-1000",
+                "501-1000",
+                "0-500",
+                "0-500"
             ],
             "Que tipos de emprego já teve? ": [
+                "CLT",
+                "PJ",
+                "PJ",
+                "PJ",
                 "CLT"
             ]
         }
@@ -317,19 +329,26 @@
         "properties": {
             "Está empregado atualmente? ": [
                 "N",
-                "S"
+                "S",
+                "N",
+                "N",
+                "N"
             ],
             "Já ficou desempregado? ": [
                 "+1",
                 "-1",
+                "N",
                 "N"
             ],
             "Qual a renda familiar? ": [
                 "0-500",
+                "501-1000",
                 "501-1000"
             ],
             "Que tipos de emprego já teve? ": [
-                "CLT"
+                "CLT",
+                "CLT",
+                "PJ"
             ]
         }
     },
@@ -390,6 +409,7 @@
             ],
             "Já ficou desempregado? ": [
                 "+1",
+                "-1",
                 "-1",
                 "N"
             ],

@@ -55,7 +55,7 @@ const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScal
                                     onChange={(e) => {
                                         setScaleColor("sequencial");
                                         setScaleMethod("quantize");
-                                        e.target.value === "" ? setVariable(undefined) : setVariable(e.target.value)
+                                        setVariable(e.target.value)
                                     }}
                                 >
                                     {propsVariables.map((prop) => (
