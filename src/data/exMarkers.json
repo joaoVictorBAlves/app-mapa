@@ -5,7 +5,7 @@
         "properties": {
             "Está empregado atualmente? ": "S",
             "Já ficou desempregado? ": "-1",
-            "Que tipos de emprego já teve? ": "CLT",
+            "Que tipos de emprego já teve? ": ["CLT", "PJ"],
             "Qual a renda familiar? ": "0-500",
             "qual sua idade": "12"
         },
@@ -635,7 +635,7 @@
         "properties": {
             "Está empregado atualmente? ": "S",
             "Já ficou desempregado? ": "+1",
-            "Que tipos de emprego já teve? ": "CLT",
+            "Que tipos de emprego já teve? ": ["PJ", "CLT"],
             "Qual a renda familiar? ": "501-1000",
             "qual sua idade": "30"
         },

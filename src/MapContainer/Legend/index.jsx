@@ -8,6 +8,8 @@ const Legend = ({ type, set, scaleMethod, mapScale }) => {
     const [intervals, setIntervals] = useState();
     const [colors, setColors] = useState();
     useEffect(() => {
+        console.log("SET")
+        console.log(set)
         if (mapScale)
             if (type !== "mode") {
                 if (mapScale) {

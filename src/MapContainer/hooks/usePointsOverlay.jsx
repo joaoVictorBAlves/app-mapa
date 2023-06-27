@@ -57,6 +57,7 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
                     interaction.mapPositionToPoint(pixiPoint, pointerEvent.clientX, pointerEvent.clientY);
                     let target = interaction.hitTest(pixiPoint, container);
                     if (target && target.popup) {
+                        console.log("POPUP: " + target.popup)
                         target.popup.openOn(map);
                     }
                 });
@@ -66,6 +67,7 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
             if (firstDraw || prevZoom !== zoom) {
                 circles.forEach((circle, i) => {
                     let value = variable ? data[i].properties[variable] : null;
+                    value = Array.isArray(value) ? value[0] : value
                     if (!isNaN(value))
                         value = parseFloat(value);
                     let color = value ? mapScale(value) : '#92C5DE';
@@ -80,7 +82,7 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
                     if (variable)
                         circle.popup = L.popup()
                             .setLatLng(circleCenters[i])
-                            .setContent(circleProperties[i]);
+                            .setContent(Array.isArray(circleProperties[i]) ? `${circleProperties[i]}` : circleProperties[i]);
                 });
             }
             firstDraw = false;

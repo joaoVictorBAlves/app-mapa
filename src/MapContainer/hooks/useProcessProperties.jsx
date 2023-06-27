@@ -17,6 +17,7 @@ const useProcessProperties = (data, propertyName, groupingOperation = 'mean') =>
     }
 
     const flattenedArray = propertyValue.flat();
+    console.log(flattenedArray)
     if (flattenedArray.every(isNumeric)) {
         const numeric = flattenedArray.map(parseFloat);
         switch (groupingOperation) {
@@ -35,7 +36,6 @@ const useProcessProperties = (data, propertyName, groupingOperation = 'mean') =>
                     (max, [value, count]) => (count > max.count ? { value, count } : max),
                     { value: null, count: 0 }
                 );
-                console.log(mode)
                 return mode.value;
             default:
                 throw new Error(`Operação de agrupamento '${groupingOperation}' não suportada.`);
