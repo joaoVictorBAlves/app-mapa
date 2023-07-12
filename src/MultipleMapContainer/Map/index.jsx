@@ -102,7 +102,7 @@ const MultipleMap = ({
                 console.log("Mudando scale para categorico")
                 setPolygonMapScale(() => d3.scaleOrdinal()
                     .domain(categories)
-                    .range(d3.schemeCategory10));
+                    .range(d3.schemePastel1));
             } else {
                 if (polygonScaleMethod === "quantile") {
                     console.log("Mudando scale para quantile")
