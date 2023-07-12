@@ -218,6 +218,16 @@
             ]
         },
         "properties": {
+            "quantidade de vezes dicou desempregado?": [
+                1,
+                2,
+                1,
+                3,
+                1,
+                2,
+                2,
+                2
+            ],
             "Está empregado atualmente? ": [
                 "N",
                 "S",
@@ -240,10 +250,22 @@
                 "0-500"
             ],
             "Que tipos de emprego já teve? ": [
-                "CLT",
-                "PJ",
-                "PJ",
-                "PJ",
+                [
+                    "CLT",
+                    "PJ"
+                ],
+                [
+                    "CLT",
+                    "PJ"
+                ],
+                [
+                    "CLT",
+                    "PJ"
+                ],
+                [
+                    "CLT",
+                    "PJ"
+                ],
                 "CLT"
             ]
         }
@@ -327,6 +349,16 @@
             ]
         },
         "properties": {
+            "quantidade de vezes dicou desempregado?": [
+                3,
+                2,
+                1,
+                3,
+                1,
+                3,
+                3,
+                3
+            ],
             "Está empregado atualmente? ": [
                 "N",
                 "S",
@@ -403,6 +435,16 @@
             ]
         },
         "properties": {
+            "quantidade de vezes dicou desempregado?": [
+                0,
+                2,
+                1,
+                0,
+                1,
+                0,
+                2,
+                2
+            ],
             "Está empregado atualmente? ": [
                 "N",
                 "S"
@@ -454,6 +496,16 @@
             ]
         },
         "properties": {
+            "quantidade de vezes dicou desempregado?": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+            ],
             "Está empregado atualmente? ": [
                 "N",
                 "S"

@@ -1,0 +1,92 @@
+[
+	{
+		"type": "Feature",
+		"typeResp": "markers",
+		"properties": {
+			"Onde estudou? ": [
+				[
+					"Escola Particular",
+					"Universidade Particular"
+				]
+			],
+			"Maior de 18 anos? ": [
+				"Sim"
+			]
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [
+				-3.7545563,
+				-38.5316621
+			]
+		}
+	},
+	{
+		"type": "Feature",
+		"typeResp": "markers",
+		"properties": {
+			"Onde estudou? ": [
+				[
+					"Escola Publica"
+				]
+			],
+			"Maior de 18 anos? ": [
+				"Sim"
+			]
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [
+				-3.7552128,
+				-38.535168
+			]
+		}
+	},
+	{
+		"type": "Feature",
+		"typeResp": "markers",
+		"properties": {
+			"Onde estudou? ": [
+				[
+					"Escola Publica",
+					"Universidade Publica"
+				]
+			],
+			"Maior de 18 anos? ": [
+				"Sim"
+			]
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [
+				-3.7552128,
+				-38.535168
+			]
+		}
+	},
+	{
+		"type": "Feature",
+		"typeResp": "markers",
+		"properties": {
+			"Qual o seu nível de escolaridade? ": "Ensino Médio",
+			"Onde estudou? ": [
+				[
+					"Escola Publica",
+					"Escola Particular",
+					"Universidade Publica",
+					"Universidade Particular"
+				]
+			],
+			"Maior de 18 anos? ": [
+				"Sim"
+			]
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [
+				-3.7552128,
+				-38.535168
+			]
+		}
+	}
+]

@@ -72,7 +72,6 @@ const usePointsOverlay = (map, data, variable, mapScale) => {
             if (firstDraw || prevZoom !== zoom) {
                 circles.forEach((circle, i) => {
                     let value = variable ? data[i].properties[variable] : null;
-                    console.log(value)
                     value = Array.isArray(value) ? Array.isArray(value[0]) ? value[0][0] : value[0] : value
                     if (!isNaN(value))
                         value = parseFloat(value);

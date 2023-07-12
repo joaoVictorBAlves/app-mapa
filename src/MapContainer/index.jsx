@@ -19,7 +19,6 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
             return useProcessProperties(feature.properties, question, agrouped);
         });
     });
-    console.log(valueOfProperties)
 
     // STATES
     const [variable, setVariable] = useState();

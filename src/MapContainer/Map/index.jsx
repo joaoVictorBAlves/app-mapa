@@ -39,7 +39,7 @@ const Map = ({
                 setAgrouped("mode");
                 agrouped = "mode";
             } else {
-                setAgrouped("numerical");
+                setAgrouped(agrouped);
             }
     }, [variable]);
 
