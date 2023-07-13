@@ -106,7 +106,7 @@ const Filters = ({
                     </ListItem>
                 </List>
                 <Divider />
-                {(markerVariable !== undefined) && (
+                {/* {(markerVariable !== undefined) && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
                             <Straighten
@@ -159,8 +159,8 @@ const Filters = ({
                             </FormControl>
                         </ListItem>
                     </List>
-                )}
-                {(polygonVariable !== undefined && polygonAgrouped === "numerical") && (
+                )} */}
+                {/* {(polygonVariable !== undefined && polygonAgrouped === "numerical") && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
                             <Straighten
@@ -213,7 +213,7 @@ const Filters = ({
                             </FormControl>
                         </ListItem>
                     </List>
-                )}
+                )} */}
             </Box>
         </Drawer >
     );

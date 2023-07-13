@@ -71,6 +71,7 @@ const MultipleMap = ({
     useEffect(() => {
         if (markerVariable) {
             const properties = valueOfMarkerProperties[markerVariable];
+            console.log(markerAgrouped)
             if (markerAgrouped === "mode") {
                 const categories = Array.from(new Set(properties));
                 setMarkerMapScale(() => d3.scaleOrdinal()
@@ -91,7 +92,7 @@ const MultipleMap = ({
                 }
             }
         }
-    }, [markerVariable, markerScaleColor, markerScaleMethod]);
+    }, [markerVariable, markerScaleColor, markerScaleMethod, markerAgrouped]);
 
     // CREATE POLYGON SCALE
     useEffect(() => {
@@ -133,9 +134,7 @@ const MultipleMap = ({
         });
         console.log(polygonMapScale)
         console.log(markerMapScale)
-
-        usePolygonOverlay(map, polygonData, polygonVariable, polygonMapScale, setDetails, setLocation, setFocusPolygon);
-        usePointsOverlay(map, markerData, markerVariable, markerMapScale);
+        useMultipleOverlay(map, polygonData, markerData, polygonVariable, markerVariable, polygonMapScale, markerMapScale, setDetails, setLocation, setFocusPolygon);
     }, [markerMapScale, polygonMapScale]);
 
     // MOUSEOVER FOCUS
