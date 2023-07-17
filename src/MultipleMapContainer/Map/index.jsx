@@ -7,6 +7,8 @@ import Style from '../Map.module.css'
 import usePolygonOverlay from "../hooks/usePolygonOverlay";
 import usePointsOverlay from "../hooks/usePointsOverlay";
 import useMultipleOverlay from "../hooks/useMultipleOverlay";
+import Legend from "@/MapContainer/Legend";
+import Details from "@/MapContainer/Details";
 
 let map;
 
@@ -165,6 +167,14 @@ const MultipleMap = ({
         <div>
             <div style={{ position: 'absolute', zIndex: 0 }} ref={mapRef} id="map-container" className={Style.Map}>
             </div>
+            <div style={{ position: 'absolute', top: '80px', right: '20px', zIndex: '1' }}>
+                {polygonVariable && <Details type={"polygons"} title={polygonVariable} detail={details} place={location} agrouped={agroupedMethod} />}
+            </div>
+            <div style={{ position: 'absolute', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '10px', zIndex: '1' }}>
+                {polygonVariable && <Legend key={1} type={agroupedMethod} data={polygonData} set={valueOfPolygonProperties[polygonVariable]} mapScale={polygonMapScale} scaleMethod={polygonMapScale} typeMap={"polygon"} />}
+                {markerVariable && <Legend key={2} type={markerAgrouped} data={markerData} set={valueOfMarkerProperties[markerVariable]} mapScale={markerMapScale} scaleMethod={markerScaleMethod} typeMap={"marker"} />}
+            </div>
+
         </div>
     );
 }

@@ -328,9 +328,7 @@
 						]
 					],
 					"Qual o seu nível de escolaridade? ": [
-						null,
-						"Ensino Médio",
-						null
+						"Ensino Médio"
 					],
 					"Maior de 18 anos? ": [
 						"[\"Sim\"]",
@@ -376,9 +374,7 @@
 							"Universidade Particular"
 						]
 					],
-					"Qual o seu nível de escolaridade? ": [
-						null
-					],
+					"Qual o seu nível de escolaridade? ": [],
 					"Maior de 18 anos? ": [
 						"[\"Não\"]"
 					]

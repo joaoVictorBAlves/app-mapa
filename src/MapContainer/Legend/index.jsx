@@ -1,9 +1,9 @@
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+import { KeyboardArrowDown, KeyboardArrowUp, LegendToggleRounded } from "@mui/icons-material";
 import Style from "../Map.module.css"
 import { useEffect, useState } from "react";
 import * as d3 from "d3";
 
-const Legend = ({ type, set, scaleMethod, mapScale }) => {
+const Legend = ({ type, set, scaleMethod, mapScale, typeMap }) => {
     const [hidden, setHidden] = useState(true);
     const [intervals, setIntervals] = useState();
     const [colors, setColors] = useState();
@@ -41,12 +41,19 @@ const Legend = ({ type, set, scaleMethod, mapScale }) => {
     return (
         <div className={`${Style.info} ${Style.legend}`}>
             <div className={Style.legendHeader}>
-                <h4>Legendas</h4>
+                <h4>
+                    Legendas
+                </h4>
                 <button className={`${Style.legendHidden}`} onClick={() => { setHidden(!hidden) }}>
                     {hidden && <KeyboardArrowDown />}
                     {!hidden && <KeyboardArrowUp />}
                 </button>
             </div>
+            {typeMap &&
+                <p style={{marginTop: 0}}>
+                    {typeMap}
+                </p>
+            }
             <div style={{ marginTop: "10px" }}>
                 {(hidden && intervals) && intervals.map((value, i) => (
                     <>
