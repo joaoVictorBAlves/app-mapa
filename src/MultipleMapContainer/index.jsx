@@ -41,6 +41,7 @@ const MultipleMapContainer = ({ data, agrouped = 'mean' }) => {
     const [polygonScaleMethod, setPolygonScaleMethod] = useState("quantize");
     const [markerScaleColor, setMarkerScaleColor] = useState("sequencial");
     const [polygonScaleColor, setPolygonScaleColor] = useState("sequencial");
+    const [variableDistribution, setVariableDistribution] = useState();
 
     return (
         <Box
@@ -76,6 +77,8 @@ const MultipleMapContainer = ({ data, agrouped = 'mean' }) => {
                     setPolygonScaleColor={setPolygonScaleColor}
                     setPolygonScaleMethod={setPolygonScaleMethod}
                     setPolygonVariable={setPolygonVariable}
+                    variableDistribution={variableDistribution}
+                    setVariableDistribution={setVariableDistribution}
                 />
             </Box>
             <Box
@@ -98,6 +101,7 @@ const MultipleMapContainer = ({ data, agrouped = 'mean' }) => {
                     polygonScaleMethod={polygonScaleMethod}
                     markerScaleColor={markerScaleColor}
                     polygonScaleColor={polygonScaleColor}
+                    variableDistribution={(variableDistribution) ? ((variableDistribution == "null") ? undefined : variableDistribution) : undefined}
                 />
             </Box>
         </Box>

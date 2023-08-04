@@ -28,6 +28,7 @@ const MultipleMap = ({
     polygonScaleMethod = "quantize",
     markerScaleColor = "sequencial",
     polygonScaleColor = "sequencial",
+    variableDistribution,
     minzoom = 0,
     maxZoom = 20,
 }) => {
@@ -105,19 +106,34 @@ const MultipleMap = ({
                     .domain(categories)
                     .range(d3.schemePastel1));
             } else {
-                if (polygonScaleMethod === "quantile") {
-                    setPolygonMapScale(() => d3.scaleQuantile()
-                        .domain(properties.sort((a, b) => a - b))
-                        .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
-                }
-                if (polygonScaleMethod === "quantize") {
+                if (variableDistribution) {
+                    let count = 0;
+                    polygonData.forEach((polygon) => {
+                        const resps = polygon.properties[polygonVariable];
+
+                        resps.forEach((resp) => {
+                            count += resp.filter((item) => item === variableDistribution).length;
+                        });
+                    });
                     setPolygonMapScale(() => d3.scaleQuantize()
-                        .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
-                        .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                        .domain([0, count])
+                        .range(['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                    console.log(polygonMapScale)
+                } else {
+                    if (polygonScaleMethod === "quantile") {
+                        setPolygonMapScale(() => d3.scaleQuantile()
+                            .domain(properties.sort((a, b) => a - b))
+                            .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                    }
+                    if (polygonScaleMethod === "quantize") {
+                        setPolygonMapScale(() => d3.scaleQuantize()
+                            .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
+                            .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                    }
                 }
             }
         }
-    }, [polygonVariable, polygonAgrouped, polygonScaleColor, polygonScaleMethod]);
+    }, [polygonVariable, polygonAgrouped, polygonScaleColor, polygonScaleMethod, variableDistribution]);
 
     // CREATE OVERLAYERS
     useEffect(() => {
@@ -130,7 +146,7 @@ const MultipleMap = ({
         removedLayers.forEach((layer) => {
             map.removeLayer(layer);
         });
-        useMultipleOverlay(map, polygonData, markerData, polygonVariable, markerVariable, polygonMapScale, markerMapScale, setDetails, setLocation, setFocusPolygon);
+        useMultipleOverlay(map, polygonData, markerData, polygonVariable, markerVariable, polygonMapScale, markerMapScale, setDetails, setLocation, setFocusPolygon, variableDistribution);
     }, [markerMapScale, polygonMapScale]);
 
     // MOUSEOVER FOCUS

@@ -15,7 +15,8 @@ const useMultipleOverlay = (
   markerMapScale,
   setDetails,
   setLocation,
-  setFocusPolygon
+  setFocusPolygon,
+  variableDistribution
 ) => {
   const multipleOverlay = (() => {
     let firstDraw = true;
@@ -107,7 +108,17 @@ const useMultipleOverlay = (
               }
             }
           }
-          const color = polygonVariable ? parseInt(polygonMapScale(properties).replace("#", ""), 16) : 0x96C7FF;
+          let color = polygonVariable ? parseInt(polygonMapScale(properties).replace("#", ""), 16) : 0x96C7FF;
+          if (variableDistribution) {
+            let count = 0;
+            let resps = polygonFeautures[i].properties[polygonVariable].flat();
+            resps.forEach(resp => {
+              if (resp === variableDistribution)
+                count++;
+            });
+            color = parseInt(polygonMapScale(count).replace("#", ""), 16)
+            console.log(color)
+          }
           const alpha = 1;
           // PIXI.JS
           polygon.clear()
