@@ -33,6 +33,7 @@ const Filters = ({
     setPolygonVariable
 }) => {
     const [polygonAgrouped, setPolygonAgrouped] = useState();
+    const [markersAgrouped, setMarkersAgrouped] = useState()
 
     useEffect(() => {
         if (polygonVariable)
@@ -42,6 +43,14 @@ const Filters = ({
                 setPolygonAgrouped("numerical");
     }, [polygonVariable]);
 
+    useEffect(() => {
+        if (markerVariable)
+            if (!valueOfMarkersProperties[markerVariable].every(isNumeric))
+                setMarkersAgrouped("mode");
+            else
+                setMarkersAgrouped("numerical");
+    }, [markerVariable]);
+
     return (
         <Drawer
             variant="permanent"
@@ -50,12 +59,9 @@ const Filters = ({
             <Box sx={{ overflow: 'auto' }}>
                 <List className="properties-select">
                     <ListItem>
-
                         <LocationOnOutlinedIcon
                             style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }}
                             fontSize="medium" />
-
-
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                             <InputLabel id="select-variable-label">
                                 Marcadores
@@ -77,36 +83,7 @@ const Filters = ({
                         </FormControl>
                     </ListItem>
                 </List>
-                <List className="properties-select">
-                    <ListItem>
-                        <MapOutlinedIcon
-                            style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }}
-                            fontSize="medium"
-                        />
-
-                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                            <InputLabel id="select-variable-label">
-                                Polígonos
-                            </InputLabel>
-                            <Select
-                                labelId="select-variable-label"
-                                id="select-variable-input"
-                                value={polygonVariable}
-                                onChange={(e) => {
-                                    setPolygonScaleColor("sequencial");
-                                    setPolygonScaleColor("quantize");
-                                    setPolygonVariable(e.target.value)
-                                }}
-                            >
-                                {propsPolygonVariables.map((prop) => (
-                                    <MenuItem key={prop} value={prop}>{prop}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
-                    </ListItem>
-                </List>
-                <Divider />
-                {/* {(markerVariable !== undefined) && (
+                {(markerVariable !== undefined && markersAgrouped === "numerical") && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
                             <Straighten
@@ -159,8 +136,37 @@ const Filters = ({
                             </FormControl>
                         </ListItem>
                     </List>
-                )} */}
-                {/* {(polygonVariable !== undefined && polygonAgrouped === "numerical") && (
+                )}
+                <Divider />
+                <List className="properties-select">
+                    <ListItem>
+                        <MapOutlinedIcon
+                            style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }}
+                            fontSize="medium"
+                        />
+
+                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                            <InputLabel id="select-variable-label">
+                                Polígonos
+                            </InputLabel>
+                            <Select
+                                labelId="select-variable-label"
+                                id="select-variable-input"
+                                value={polygonVariable}
+                                onChange={(e) => {
+                                    setPolygonScaleColor("sequencial");
+                                    setPolygonScaleColor("quantize");
+                                    setPolygonVariable(e.target.value)
+                                }}
+                            >
+                                {propsPolygonVariables.map((prop) => (
+                                    <MenuItem key={prop} value={prop}>{prop}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </ListItem>
+                </List>
+                {(polygonVariable !== undefined && polygonAgrouped === "numerical") && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
                             <Straighten
@@ -168,10 +174,10 @@ const Filters = ({
                                 fontSize="medium"
                             />
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="select-marker-method-label">Método</InputLabel>
+                                <InputLabel id="select-polygon-method-label">Método</InputLabel>
                                 <Select
-                                    labelId="select-marker-method-label"
-                                    id="select-marker-method-input"
+                                    labelId="select-polygon-method-label"
+                                    id="select-polygon-method-input"
                                     value={polygonScaleMethod}
                                     onChange={(e) => {
                                         setPolygonScaleMethod(e.target.value);
@@ -193,10 +199,10 @@ const Filters = ({
                                 fontSize="medium"
                             />
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="select-marker-palette-label">Paleta</InputLabel>
+                                <InputLabel id="select-polygon-palette-label">Paleta</InputLabel>
                                 <Select
-                                    labelId="select-marker-palette-label"
-                                    id="select-marker-palette-input"
+                                    labelId="select-polygon-palette-label"
+                                    id="select-polygon-palette-input"
                                     value={polygonScaleColor}
                                     onChange={(e) => {
                                         setPolygonScaleColor(e.target.value);
@@ -213,7 +219,7 @@ const Filters = ({
                             </FormControl>
                         </ListItem>
                     </List>
-                )} */}
+                )}
             </Box>
         </Drawer >
     );

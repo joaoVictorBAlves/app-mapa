@@ -163,12 +163,9 @@ const useMultipleOverlay = (
       if (firstDraw || prevZoom !== zoom) {
         circles.forEach((circle, i) => {
           let value = markerVariable ? markerData[i].properties[markerVariable] : null;
-          console.log(value)
           value = Array.isArray(value) ? Array.isArray(value[0]) ? value[0][0] : value[0] : value
           if (!isNaN(value))
             value = parseFloat(value);
-          if (value && markerMapScale)
-            console.log(value, markerMapScale(value))
           let color = value ? markerMapScale(value) : '#FF0000';
           color = color.replace('#', '');
           circle.clear();

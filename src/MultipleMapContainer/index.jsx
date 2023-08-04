@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Filters from "./filters/index";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useProcessProperties from "./hooks/useProcessProperties";
 import MultipleFilters from "./filters/MultipleFilters";
 
@@ -37,10 +37,15 @@ const MultipleMapContainer = ({ data, agrouped = 'mean' }) => {
     // STATES
     const [markerVariable, setMarkerVariable] = useState();
     const [polygonVariable, setPolygonVariable] = useState();
-    const [markerScaleMethod, setMarkerScaleMethod] = useState();
-    const [polygonScaleMethod, setPolygonScaleMethod] = useState();
-    const [markerScaleColor, setMarkerScaleColor] = useState();
-    const [polygonScaleColor, setPolygonScaleColor] = useState();
+    const [markerScaleMethod, setMarkerScaleMethod] = useState("quantize");
+    const [polygonScaleMethod, setPolygonScaleMethod] = useState("quantize");
+    const [markerScaleColor, setMarkerScaleColor] = useState("sequencial");
+    const [polygonScaleColor, setPolygonScaleColor] = useState("sequencial");
+
+    useEffect(() => {
+        console.log("poligonos escala cor: " + polygonScaleColor)
+        console.log("poligonos escala metodo: " + polygonScaleMethod)
+    }, [polygonScaleColor, polygonScaleMethod])
 
     return (
         <Box
