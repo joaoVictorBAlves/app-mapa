@@ -73,7 +73,6 @@ const MultipleMap = ({
 
     // CREATE MARKERS SCALE
     useEffect(() => {
-        // console.log("marcador: " + markerScaleColor, markerScaleMethod, markerAgrouped);
         if (markerVariable) {
             const properties = valueOfMarkerProperties[markerVariable];
             if (markerAgrouped === "mode") {
@@ -98,7 +97,6 @@ const MultipleMap = ({
 
     // CREATE POLYGON SCALE
     useEffect(() => {
-        // console.log("poligono: " + polygonScaleColor, polygonScaleMethod, polygonAgrouped);
         if (polygonVariable) {
             const properties = valueOfPolygonProperties[polygonVariable];
             if (polygonAgrouped === "mode") {
@@ -107,16 +105,15 @@ const MultipleMap = ({
                     .domain(categories)
                     .range(d3.schemePastel1));
             } else {
-                // console.log(polygonAgrouped)
                 if (polygonScaleMethod === "quantile") {
                     setPolygonMapScale(() => d3.scaleQuantile()
                         .domain(properties.sort((a, b) => a - b))
-                        .range(markerScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                        .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
                 }
                 if (polygonScaleMethod === "quantize") {
                     setPolygonMapScale(() => d3.scaleQuantize()
                         .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
-                        .range(markerScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                        .range(polygonScaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
                 }
             }
         }

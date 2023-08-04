@@ -144,7 +144,6 @@ const Filters = ({
                             style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }}
                             fontSize="medium"
                         />
-
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                             <InputLabel id="select-variable-label">
                                 Polígonos
@@ -155,7 +154,6 @@ const Filters = ({
                                 value={polygonVariable}
                                 onChange={(e) => {
                                     setPolygonScaleColor("sequencial");
-                                    setPolygonScaleColor("quantize");
                                     setPolygonVariable(e.target.value)
                                 }}
                             >

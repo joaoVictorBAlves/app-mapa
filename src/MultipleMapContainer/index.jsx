@@ -42,11 +42,6 @@ const MultipleMapContainer = ({ data, agrouped = 'mean' }) => {
     const [markerScaleColor, setMarkerScaleColor] = useState("sequencial");
     const [polygonScaleColor, setPolygonScaleColor] = useState("sequencial");
 
-    useEffect(() => {
-        console.log("poligonos escala cor: " + polygonScaleColor)
-        console.log("poligonos escala metodo: " + polygonScaleMethod)
-    }, [polygonScaleColor, polygonScaleMethod])
-
     return (
         <Box
             sx={{
