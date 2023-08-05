@@ -108,7 +108,7 @@ const useMultipleOverlay = (
               }
             }
           }
-          let color = polygonVariable ? parseInt(polygonMapScale(properties).replace("#", ""), 16) : 0x96C7FF;
+          let color = polygonVariable ? parseInt((polygonMapScale(properties) ? polygonMapScale(properties).replace("#", "") : "#000000"), 16) : 0x96C7FF;
           if (variableDistribution) {
             let count = 0;
             let resps = polygonFeautures[i].properties[polygonVariable].flat();

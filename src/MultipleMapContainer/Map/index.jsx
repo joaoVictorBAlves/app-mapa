@@ -110,9 +110,11 @@ const MultipleMap = ({
                     let count = 0;
                     polygonData.forEach((polygon) => {
                         const resps = polygon.properties[polygonVariable];
-
                         resps.forEach((resp) => {
-                            count += resp.filter((item) => item === variableDistribution).length;
+                            if (Array.isArray(resp))
+                                count += resp.filter((item) => item === variableDistribution).length;
+                            else
+                                count += resp === variableDistribution ? 1 : 0;
                         });
                     });
                     setPolygonMapScale(() => d3.scaleQuantize()
