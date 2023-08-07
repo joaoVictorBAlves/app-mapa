@@ -1,38 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# App Map - Census Data Visualization
 
-## Getting Started
+The App Map is a project developed using `Next.js`, `Leaflet`, `Pixi.js`, and `D3.js`, which provides a map visualization system allowing detailed analysis through markers and polygons. This application is particularly useful for census data analysis, enabling a comprehensive understanding of results in categorical and numerical data.
 
-First, run the development server:
+![image](https://github.com/joaoVictorBAlves/app-mapa/assets/86852231/0501cdf1-a8af-4af6-ac18-d00e0c52fddc)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Main Features
+
+The App Map has the following key features:
+
+1. **Marker Visualization:**
+   - Enables the visualization of each individual response from a census survey.
+   - Markers are placed on the map, representing geolocated data.
+   - Clicking on a marker provides detailed information about the related response.
+
+2. **Polygon Visualization:**
+   - Offers a visualization of data grouped by census sector on the map.
+   - Utilizes a choropleth map, where polygon coloration is based on specific values, allowing intuitive and comparative data visualization.
+   - Clicking on a polygon displays summarized information about the related census sector.
+
+3. **Categorical and Numerical Data:**
+   - The system supports data analysis in both categorical and numerical formats.
+   - For categorical data, it allows grouping, counting, and filtering responses based on specific categories.
+   - For numerical data, it enables statistical calculations such as mean, median, and standard deviation.
+
+## Prerequisites
+
+Before running the App Map, make sure you have the following prerequisites installed in your development environment:
+
+- Node.js (version X or higher)
+- npm (Node.js package manager)
+
+## Installation and Execution
+
+To install and run the App Map, follow the steps below:
+
+1. Clone the project repository to your computer:
+
+```
+git clone https://github.com/your-username/app-mapa.git
+cd app-mapa
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install project dependencies using npm:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Start the development server:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Now, the App Map will be available at `http://localhost:3000` in your browser.
 
-## Learn More
+## Contribution
 
-To learn more about Next.js, take a look at the following resources:
+If you wish to contribute to the development of the App Map, feel free to fork the repository, implement your improvements, and submit a pull request. To contribute to Leaflet, I recommend first checking this documentation [ManuBB](https://github.com/manubb/Leaflet.PixiOverlay). We welcome contributions of any kind, including bug fixes, code refactoring, and new features.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For questions or suggestions, please contact us at `joaovba.dev@gmail.com`, or open an issue in the project repository at `https://github.com/your-username/app-mapa`. We are always interested in improving the project with community feedback.
