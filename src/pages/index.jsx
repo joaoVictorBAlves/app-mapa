@@ -1,5 +1,5 @@
 import MapContainer from "@/MapContainer";
-import data from "../data/exPolygons.json"
+import data from "../data/ExPolygons.json"
 import MultipleMapContainer from "@/MultipleMapContainer";
 import { useEffect } from "react";
 

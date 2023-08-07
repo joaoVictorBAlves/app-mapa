@@ -143,30 +143,54 @@ const Filters = ({
                 <Divider />
                 <List className="properties-select">
                     <ListItem>
-                        <MapOutlinedIcon
-                            style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }}
-                            fontSize="medium"
-                        />
+                        <MapOutlinedIcon style={{ marginLeft: 5, marginTop: 18, marginRight: 1 }} fontSize="medium" />
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                            <InputLabel id="select-variable-label">
-                                Polígonos
-                            </InputLabel>
+                            <InputLabel id="select-variable-label">Polígonos</InputLabel>
                             <Select
                                 labelId="select-variable-label"
                                 id="select-variable-input"
                                 value={polygonVariable}
                                 onChange={(e) => {
                                     setPolygonScaleColor("sequencial");
-                                    setPolygonVariable(e.target.value)
+                                    setPolygonVariable(e.target.value);
                                 }}
                             >
                                 {propsPolygonVariables.map((prop) => (
-                                    <MenuItem key={prop} value={prop}>{prop}</MenuItem>
+                                    <MenuItem key={prop} value={prop}>
+                                        {prop}
+                                    </MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
                     </ListItem>
+                    {polygonVariable !== undefined && polygonAgrouped === "mode" && (
+                        <ListItem>
+                            <ManageSearchRounded style={{ marginLeft: 20, marginTop: 18, marginRight: 5 }} fontSize="medium" />
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="select-marker-method-label">Destacar valor</InputLabel>
+                                <Select
+                                    labelId="select-marker-method-label"
+                                    id="select-marker-method-input"
+                                    value={variableDistribution}
+                                    onChange={(e) => {
+                                        setVariableDistribution(e.target.value);
+                                    }}
+                                    label="Choropleth"
+                                >
+                                    <MenuItem key="0" value={"null"}>
+                                        Nenhum
+                                    </MenuItem>
+                                    {valueOfPolygonProperties[polygonVariable].map((value, index) => (
+                                        <MenuItem key={"value" + index} value={value}>
+                                            {value}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </ListItem>
+                    )}
                 </List>
+
                 {(polygonVariable !== undefined && polygonAgrouped === "numerical") && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
@@ -216,37 +240,6 @@ const Filters = ({
                                     <MenuItem key="divergente" value="divergente">
                                         Divergente
                                     </MenuItem>
-                                </Select>
-                            </FormControl>
-                        </ListItem>
-                    </List>
-                )}
-                {(polygonVariable !== undefined && polygonAgrouped === "mode") && (
-                    <List>
-                        <ListItem style={{ display: "flex" }}>
-                            <ManageSearchRounded
-                                style={{ marginLeft: 20, marginTop: 18, marginRight: 5 }}
-                                fontSize="medium"
-                            />
-                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="select-marker-method-label">Destacar valor</InputLabel>
-                                <Select
-                                    labelId="select-marker-method-label"
-                                    id="select-marker-method-input"
-                                    value={variableDistribution}
-                                    onChange={(e) => {
-                                        setVariableDistribution(e.target.value);
-                                    }}
-                                    label="Choropleth"
-                                >
-                                    <MenuItem key="0" value={"null"}>
-                                        Nenhum
-                                    </MenuItem>
-                                    {valueOfPolygonProperties[polygonVariable].map((value, index) => (
-                                        <MenuItem key={"value" + index} value={value}>
-                                            {value}
-                                        </MenuItem>
-                                    ))}
                                 </Select>
                             </FormControl>
                         </ListItem>
