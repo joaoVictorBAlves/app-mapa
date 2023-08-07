@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Filters from "./filters/index";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useProcessProperties from "./hooks/useProcessProperties";
 const Map = dynamic(() => import("./Map"), {
     ssr: false
@@ -24,6 +24,7 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
     const [variable, setVariable] = useState();
     const [scaleMethod, setScaleMethod] = useState();
     const [scaleColor, setScaleColor] = useState();
+    const [variableDistribution, setVariableDistribution] = useState();
 
     return (
         <Box sx={
@@ -51,6 +52,8 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
                     setVariable={setVariable}
                     propsVariables={propsVariables}
                     valueOfProperties={valueOfProperties}
+                    variableDistribution={variableDistribution}
+                    setVariableDistribution={setVariableDistribution}
                 />
             </Box>
             <Box sx={{
@@ -67,6 +70,7 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
                     variable={variable}
                     scaleMethod={scaleMethod}
                     scaleColor={scaleColor}
+                    variableDistribution={variableDistribution}
                 />
             </Box>
         </Box >

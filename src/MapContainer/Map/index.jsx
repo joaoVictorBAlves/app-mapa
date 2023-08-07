@@ -23,7 +23,8 @@ const Map = ({
     scaleMethod,
     scaleColor,
     agrouped,
-    valueOfProperties
+    valueOfProperties,
+    variableDistribution
 }) => {
     const mapRef = useRef();
     const [mapScale, setMapScale] = useState(null);
@@ -69,19 +70,35 @@ const Map = ({
                     .domain(categories)
                     .range(d3.schemeCategory10));
             } else {
-                if (scaleMethod === "quantile") {
-                    setMapScale(() => d3.scaleQuantile()
-                        .domain(properties.sort((a, b) => a - b))
-                        .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
-                }
-                if (scaleMethod === "quantize") {
+                if (variableDistribution) {
+                    let count = 0;
+                    data.forEach((polygon) => {
+                        const resps = polygon.properties[variable];
+                        resps.forEach((resp) => {
+                            if (Array.isArray(resp))
+                                count += resp.filter((item) => item === variableDistribution).length;
+                            else
+                                count += resp === variableDistribution ? 1 : 0;
+                        });
+                    });
                     setMapScale(() => d3.scaleQuantize()
-                        .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
-                        .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                        .domain([0, count])
+                        .range(['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                } else {
+                    if (scaleMethod === "quantile") {
+                        setMapScale(() => d3.scaleQuantile()
+                            .domain(properties.sort((a, b) => a - b))
+                            .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                    }
+                    if (scaleMethod === "quantize") {
+                        setMapScale(() => d3.scaleQuantize()
+                            .domain([d3.min(properties.sort((a, b) => a - b)), d3.max(properties.sort((a, b) => a - b))])
+                            .range(scaleColor === "divergente" ? ['#f73946', '#ff6e77', '#3693ff', '#1564bf'] : ['#96c7ff', '#3693ff', '#0564bf', '#063973']));
+                    }
                 }
             }
         }
-    }, [variable, agrouped, scaleMethod, scaleColor]);
+    }, [variable, agrouped, scaleMethod, scaleColor, variableDistribution]);
     // CREATE OVERLAYERS
     useEffect(() => {
         let layers = Object.values(map._layers);
@@ -94,7 +111,7 @@ const Map = ({
             map.removeLayer(layer);
         });
         if (type === "polygons") {
-            usePolygonOverlay(map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon);
+            usePolygonOverlay(map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon, variableDistribution);
         }
         if (type === "markers") {
             usePointsOverlay(map, data, variable, mapScale);
@@ -135,7 +152,7 @@ const Map = ({
                 {variable && <Details type={type} title={variable} detail={details} place={location} agrouped={agroupedMethod} />}
             </div>
             <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: '1' }}>
-                {variable && <Legend key={1} type={agroupedMethod} data={data} set={valueOfProperties[variable]} mapScale={mapScale} scaleMethod={scaleMethod} />}
+                {variable && <Legend key={1} type={agroupedMethod} data={data} set={valueOfProperties[variable]} mapScale={mapScale} scaleMethod={scaleMethod} variableDistribution={variableDistribution} variable={variable} />}
             </div>
         </div>
     );

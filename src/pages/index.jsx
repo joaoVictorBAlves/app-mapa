@@ -1,13 +1,16 @@
 import MapContainer from "@/MapContainer";
-import data from "../data/Multiple.json"
+import data from "../data/exPolygons.json"
 import MultipleMapContainer from "@/MultipleMapContainer";
+import { useEffect } from "react";
 
 const Home = () => {
   let isMultiple = false;
 
-  if (Object.keys(data)[0] = 'markers') {
-    isMultiple = true;
-  }
+  useEffect(() => {
+    if (Object.keys(data)[0] = 'markers') {
+      isMultiple = true;
+    }
+  }, [data])
 
   if (isMultiple) {
     return (

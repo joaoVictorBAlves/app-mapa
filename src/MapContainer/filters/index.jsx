@@ -7,14 +7,14 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import { ColorLens, Straighten } from "@mui/icons-material";
+import { ColorLens, ManageSearchRounded, Straighten } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
 function isNumeric(value) {
     return !isNaN(parseFloat(value)) && isFinite(value);
 }
 
-const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScaleColor, setScaleMethod, propsVariables, valueOfProperties }) => {
+const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScaleColor, setScaleMethod, propsVariables, valueOfProperties, variableDistribution, setVariableDistribution }) => {
     const [agrouped, setAgrouped] = useState();
     useEffect(() => {
         if (variable)
@@ -22,6 +22,7 @@ const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScal
                 setAgrouped("mode");
             else
                 setAgrouped("numerical");
+        setVariableDistribution(null)
     }, [variable]);
 
     return (
@@ -103,6 +104,37 @@ const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScal
                         </ListItem>
                     </List>
                 }
+                {(variable !== undefined && agrouped != "numerical") && (
+                    <List>
+                        <ListItem style={{ display: "flex" }}>
+                            <ManageSearchRounded
+                                style={{ marginLeft: 20, marginTop: 18, marginRight: 5 }}
+                                fontSize="medium"
+                            />
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="select-marker-method-label">Destacar valor</InputLabel>
+                                <Select
+                                    labelId="select-marker-method-label"
+                                    id="select-marker-method-input"
+                                    value={variableDistribution}
+                                    onChange={(e) => {
+                                        setVariableDistribution(e.target.value);
+                                    }}
+                                    label="Choropleth"
+                                >
+                                    <MenuItem key="0" value={"null"}>
+                                        Nenhum
+                                    </MenuItem>
+                                    {[...new Set(valueOfProperties[variable])].map((value, index) => (
+                                        <MenuItem key={"value" + index} value={value}>
+                                            {value}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </ListItem>
+                    </List>
+                )}
             </Box>
         </Drawer >
     );

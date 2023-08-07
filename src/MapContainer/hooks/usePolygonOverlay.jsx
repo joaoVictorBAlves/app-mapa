@@ -4,7 +4,7 @@ import * as d3 from "d3";
 import "pixi.js";
 let scaledCoordinates = null;
 
-const usePolygonOverlay = (map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon) => {
+const usePolygonOverlay = (map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon, variableDistribution) => {
     const polygonOverlay = (() => {
         let firstDraw = true;
         let prevZoom;
@@ -71,7 +71,17 @@ const usePolygonOverlay = (map, data, variable, mapScale, setDetails, setLocatio
                             }
                         }
                     }
-                    const color = variable ? parseInt(mapScale(properties).replace("#", ""), 16) : 0x96C7FF;
+                    let color = variable ? parseInt(mapScale(properties).replace("#", ""), 16) : 0x96C7FF;
+                    if (variableDistribution) {
+                        let count = 0;
+                        let resps = polygonFeautures[i].properties[variable].flat();
+                        console.log(resps)
+                        resps.forEach(resp => {
+                            if (resp === variableDistribution)
+                                count++;
+                        });
+                        color = parseInt(mapScale(count).replace("#", ""), 16)
+                    }
                     const alpha = 1;
                     // PIXI.JS
                     polygon.clear()
