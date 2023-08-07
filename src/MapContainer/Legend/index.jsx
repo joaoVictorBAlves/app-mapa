@@ -3,7 +3,7 @@ import Style from "../Map.module.css"
 import { useEffect, useState } from "react";
 import * as d3 from "d3";
 
-const Legend = ({ type, set, scaleMethod, mapScale, typeMap }) => {
+const Legend = ({ type, set, data, scaleMethod, variable, mapScale, typeMap, variableDistribution }) => {
     const [hidden, setHidden] = useState(true);
     const [intervals, setIntervals] = useState();
     const [colors, setColors] = useState();
@@ -29,9 +29,42 @@ const Legend = ({ type, set, scaleMethod, mapScale, typeMap }) => {
                     setColors(intervalColors);
                 }
             } else {
-                const categories = Array.from(new Set(set));
-                setIntervals(categories)
-                setColors(categories.map(category => mapScale(category)))
+                if (!variableDistribution) {
+                    const categories = Array.from(new Set(set));
+                    setIntervals(categories)
+                    setColors(categories.map(category => mapScale(category)))
+                } else {
+                    const quantities = [];
+
+                    data.forEach(item => {
+                        let count = 0;
+                        let resps = item.properties[variable].flat();
+                        resps.forEach(resp => {
+                            if (resp === variableDistribution)
+                                count++;
+                        });
+                        quantities.push(count)
+                    });
+
+                    console.log(quantities)
+
+                    const groupedValues = d3.group(
+                        quantities.sort((a, b) => a - b),
+                        (value) => mapScale(value)
+                    );
+                    let values = []
+                    groupedValues.forEach((group) => {
+                        values.push(
+                            `${parseFloat(group[0]).toFixed(2)}${group[0] !== group[group.length - 1]
+                                ? " - " + parseFloat(group[group.length - 1]).toFixed(2)
+                                : ""
+                            }`
+                        );
+                    });
+                    setIntervals(values);
+                    const intervalColors = [...groupedValues.entries()].map(([color]) => color);
+                    setColors(intervalColors);
+                }
             }
     }, [mapScale])
 
@@ -50,7 +83,7 @@ const Legend = ({ type, set, scaleMethod, mapScale, typeMap }) => {
                 </button>
             </div>
             {typeMap &&
-                <p style={{marginTop: 0}}>
+                <p style={{ marginTop: 0 }}>
                     {typeMap}
                 </p>
             }

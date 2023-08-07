@@ -120,7 +120,6 @@ const MultipleMap = ({
                     setPolygonMapScale(() => d3.scaleQuantize()
                         .domain([0, count])
                         .range(['#96c7ff', '#3693ff', '#0564bf', '#063973']));
-                    console.log(polygonMapScale)
                 } else {
                     if (polygonScaleMethod === "quantile") {
                         setPolygonMapScale(() => d3.scaleQuantile()
@@ -183,8 +182,8 @@ const MultipleMap = ({
                 {polygonVariable && <Details type={"polygons"} title={polygonVariable} detail={details} place={location} agrouped={agroupedMethod} />}
             </div>
             <div style={{ position: 'absolute', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '10px', zIndex: '1' }}>
-                {polygonVariable && <Legend key={1} type={agroupedMethod} data={polygonData} set={valueOfPolygonProperties[polygonVariable]} mapScale={polygonMapScale} scaleMethod={polygonMapScale} typeMap={"polygon"} />}
-                {markerVariable && <Legend key={2} type={markerAgrouped} data={markerData} set={valueOfMarkerProperties[markerVariable]} mapScale={markerMapScale} scaleMethod={markerScaleMethod} typeMap={"marker"} />}
+                {polygonVariable && <Legend key={1} type={agroupedMethod} data={polygonData} set={valueOfPolygonProperties[polygonVariable]} mapScale={polygonMapScale} scaleMethod={polygonMapScale} variableDistribution={variableDistribution} variable={polygonVariable} typeMap={"polygon"} />}
+                {markerVariable && <Legend key={2} type={markerAgrouped} data={markerData} set={valueOfMarkerProperties[markerVariable]} mapScale={markerMapScale} scaleMethod={markerScaleMethod} variableDistribution={false} typeMap={"marker"} />}
             </div>
 
         </div>
