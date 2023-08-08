@@ -104,7 +104,7 @@ const Filters = ({ data, variable, scaleColor, scaleMethod, setVariable, setScal
                         </ListItem>
                     </List>
                 }
-                {(variable !== undefined && agrouped != "numerical") && (
+                {(variable !== undefined && agrouped != "numerical" && data[0].typeResp === "polygons") && (
                     <List>
                         <ListItem style={{ display: "flex" }}>
                             <ManageSearchRounded

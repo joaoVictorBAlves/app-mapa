@@ -52,7 +52,7 @@ const MapContainer = ({ data, agrouped = 'mean' }) => {
                     setVariable={setVariable}
                     propsVariables={propsVariables}
                     valueOfProperties={valueOfProperties}
-                    variableDistribution={variableDistribution}
+                    variableDistribution={data[0].typeResp != "markers" ? variableDistribution : null}
                     setVariableDistribution={setVariableDistribution}
                 />
             </Box>

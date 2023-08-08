@@ -114,6 +114,7 @@ const Map = ({
             usePolygonOverlay(map, data, variable, mapScale, setDetails, setLocation, setFocusPolygon, variableDistribution);
         }
         if (type === "markers") {
+            
             usePointsOverlay(map, data, variable, mapScale);
         }
         if (type === "multiple") {
