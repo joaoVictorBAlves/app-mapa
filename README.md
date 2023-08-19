@@ -1,6 +1,6 @@
 # App Map - Census Data Visualization
 
-The App Map is a project developed using `Next.js`, `Leaflet`, `Pixi.js`, and `D3.js`, which provides a map visualization system allowing detailed analysis through markers and polygons. This application is particularly useful for census data analysis, enabling a comprehensive understanding of results in categorical and numerical data.
+The App Map is a project developed using `Next.js`, `Leaflet`, `Pixi.js`, and `D3.js`, which provides a map visualization system allowing detailed analysis through markers and polygons. This application is particularly useful for census data analysis, enabling a comprehensive understanding of results in categorical and numerical data
 
 ![image](https://github.com/joaoVictorBAlves/app-mapa/assets/86852231/0501cdf1-a8af-4af6-ac18-d00e0c52fddc)
 
